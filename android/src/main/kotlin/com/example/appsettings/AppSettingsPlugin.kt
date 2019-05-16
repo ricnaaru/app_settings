@@ -39,6 +39,8 @@ class AppSettingsPlugin: MethodCallHandler {
       openSettings(android.provider.Settings.ACTION_WIFI_SETTINGS)
     } else if (call.method == "location") {
       openSettings(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+    } else if (call.method == "settings") {
+      openSettings(android.provider.Settings.ACTION_SETTINGS)
     } else if (call.method == "security") {
       openSettings(android.provider.Settings.ACTION_SECURITY_SETTINGS)
     } else if (call.method == "app_settings") {

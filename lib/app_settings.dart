@@ -6,22 +6,26 @@ class AppSettings {
   static const MethodChannel _channel = const MethodChannel('app_settings');
 
   /// Future async method call to open WIFI settings.
-  static Future<void> openWIFISettings() async {
+  static Future openWIFISettings() async {
     _channel.invokeMethod('wifi');
   }
 
   /// Future async method call to open location settings.
-  static Future<void> openLocationSettings() async {
+  static Future openLocationSettings() async {
     _channel.invokeMethod('location');
   }
 
   /// Future async method call to open security settings.
-  static Future<void> openSecuritySettings() async {
+  static Future openSecuritySettings() async {
     _channel.invokeMethod('security');
   }
 
   /// Future async method call to open app specific settings screen.
-  static Future<void> openAppSettings() async {
+  static Future openAppSettings() async {
     _channel.invokeMethod('app_settings');
+  }
+
+  static Future openSettings() async {
+    _channel.invokeMethod('settings');
   }
 }
