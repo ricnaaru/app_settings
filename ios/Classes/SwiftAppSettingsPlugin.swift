@@ -13,6 +13,15 @@ public class SwiftAppSettingsPlugin: NSObject, FlutterPlugin {
         }
       }
   }
+  private func openGeneralSettings() {
+      if let url = URL(string:"App-Prefs:root=General") {
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+      }
+  }
 
   /// Public register method for Flutter plugin registrar.
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -23,6 +32,11 @@ public class SwiftAppSettingsPlugin: NSObject, FlutterPlugin {
 
   /// Public handler method for managing method channel calls.
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-      openSettings()
+      if (call.method == "settings") {
+        openGeneralSettings()
+      } else {
+        openSettings()
+      }
+
   }
 }
